@@ -1,0 +1,23 @@
+<form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+       <!-- <div *ngIf="emailTest.invalid && (emailTest.dirty || emailTest.touched)">
+       <div *ngIf="emailTest.errors.?required">Email is required.</div> -->
+      <div *ngIf="emailForm.invalid">Invalid email format.</div>
+      <!-- </div>  -->
+      
+    </div>
+  
+    <button type="submit" [disabled]="emailForm.invalid">Submit</button>
+  </form>
+  <div *ngIf="loadData">
+    <h1>Answer</h1>
+    <p>{{formResponse.email}}</p>
+    <p>{{formResponse.time}}</p>
+  
+  </div>
+  <div *ngIf="isError">
+    <p>{{errorMessage}}</p>
+  </div>
